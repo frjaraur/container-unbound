@@ -25,7 +25,9 @@ Sample usage, exporting on 20053 tcp and udp:
 docker run -d --name unbound \
 -p20053:53/udp \
 -p20053:53/tcp \
+--restart always \
 --read-only \
--v $(pwd)/unbound.conf:/etc/unbound/unbound.conf 
+-v $(pwd)/unbound.conf:/etc/unbound/unbound.conf \
+-v $(pwd)/localrecords.conf:/etc/unbound/localrecords.conf \
 frjaraur/unbound:latest
 ~~~
