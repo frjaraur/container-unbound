@@ -31,3 +31,14 @@ docker run -d --name unbound \
 -v $(pwd)/localrecords.conf:/etc/unbound/localrecords.conf \
 frjaraur/unbound:latest
 ~~~
+
+Using local host network instead of NAT service:
+~~~
+docker run -d --name unbound \
+--net=host \
+--restart always \
+--read-only \
+-v $(pwd)/unbound.conf:/etc/unbound/unbound.conf \
+-v $(pwd)/localrecords.conf:/etc/unbound/localrecords.conf \
+frjaraur/unbound:latest
+~~~
